@@ -1,8 +1,8 @@
 ## Mytime Automation Assignment
 
-This is a smaller version of a Java project of mine that I have been using for some time in a couple of clients and when lessionning courses, therefore, no private content is being shared.
+This is a smaller version of a Java project that I have been using for some time in a couple of clients, and when teaching courses, no private content is being shared.
 
-I have modified the project so it would only have the technologies needed for the automation proposal, however, there may be some unused code left behind due to the short time I had to do this validation, my apologies if this does happen.
+I have modified the project to have only the technologies needed for the automation proposal; however, there may be some unused code left behind due to the short time I had to do this validation. My apologies if this does happen.
 
 The project consists of a BDD suite of tests, containing:
 - .feature file, located at ```src/test/resources/products/website/```
@@ -15,13 +15,13 @@ In order to execute the project, the runner file should be used, either by acces
 mvn clean test -Dtest=com.mytime.products.website.runner.Run`
 ```
 
-All actions are handled by the **Support** or  **Intern** classes, i.e: The **Stepdefinition** class extends the **Support** class responsible for the technology used, in this case: **CoreWeb** this class have multiple encapsuled methods that will inerheit some navigation flows for all predefined actions already set. i.e. ```find(string).get().text();```.
+All actions are handled by the **Support** or  **Intern** classes, i.e., The **Stepdefinition** class extends the **Support** class responsible for the technology used; in this case: **CoreWeb**, this class have multiple encapsulated methods that will inherit some navigation flows for all predefined actions already set. i.e. ```find(string).get().text();```.
 
-Those methods will then trigger the plugins actions i.e. **Selenium** and exception handlers, on the **LocatorWeb** and **Execute** classes.
+Those methods will then trigger the plugin's actions, i.e., **Selenium** and exception handlers, on the **LocatorWeb** and **Execute** classes.
 
-Every action will trigger Log inputs and a new HTML report section (feature, scenario, step, action, screenshot, error, tables and markdowns).
+Every action will trigger Log inputs and a new HTML report section (feature, scenario, step, action, screenshot, error, tables, and markdowns).
 
-There is three observable classes that triggers some eventListeners to automatically generate the html report file, some sections, perform validations on the code and test structure.
+Three observable classes trigger some event listeners to automatically generate the HTML report file, some sections, perform validations on the code, and test structure.
 
     src/test/java/com/mytime/intern/plugin/ListCucumber.java
     src/test/java/com/mytime/intern/plugin/ListCucumberDetailed.java
@@ -37,13 +37,11 @@ These plugins (observables) are configured on the runner class and will trigger 
     TestRunStarted
 
 The validations on the observables are: 
-- Every scenario must begin with keyword 'Given'.
+- Every scenario must begin with the keyword 'Given'.
 - Every scenario must have at least one assertion.
 - Every scenario must have at least one 'When' keyword.
 - Every scenario must have at least one 'Then' keyword.
 - Every 'Then' keyword must have at least one assertion.
 - Every 'And' keyword that comes after 'Then' keyword must have at least one assertion.
 
-The **Instances** class and some of its structure was requested by some clients and can be easily changed, however, due to a relative short time to do this task, no further modification was done.
-
-
+The **Instances** class and some of its structure were requested by some clients and can be easily changed; however, due to a relatively short time to do this task, no further modification was done.
