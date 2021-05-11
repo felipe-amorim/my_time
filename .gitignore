@@ -1,0 +1,6 @@
+.idea/
+target/
+fabrica_automacao.iml
+/src/test/resources/report/
+/src/test/resources/downloads/
+.DS_Store

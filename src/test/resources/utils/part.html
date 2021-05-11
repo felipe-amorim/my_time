@@ -1,0 +1,149 @@
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script>
+    var arrows =
+        "<div class=\"arrows arrowsDiv\">\n" +
+        "    <div class=\"arrowItem\" id=\"arrowPrev\" onclick='prevImg()'>\n" +
+        "        <i class=\"fa fa-chevron-left\"></i>\n" +
+        "    </div>\n" +
+        "    <div class=\"arrowItem\" id=\"arrowNext\" onclick='nextImg()'>\n" +
+        "       <i class=\"fa fa-chevron-right\"></i>\n" +
+        "    </div>\n" +
+        "</div>";
+
+    function createArrows(event) {
+        setTimeout(function () {
+            let modal = $('.featherlight');
+            $('.arrowsDiv').remove();
+            modal.append(arrows);
+            countImages($(event.target));
+        }, 150)
+    }
+
+    let index;
+    let tamanhoArray;
+    let scenarioImages;
+
+    function countImages(ob){
+        let modal = $('.featherlight');
+        let scenario = ob.parents('.accordion').first();
+        let currentImgUrl = ob.attr('href');
+
+        scenarioImages = [];
+
+        scenario.find('a').each(function () {
+            scenarioImages.push($(this).attr('href'));
+        });
+
+        tamanhoArray = scenarioImages.length - 1;
+        for (index = tamanhoArray; index >= 0; --index) {
+            if (currentImgUrl === scenarioImages[index]) {
+                break
+            }
+        }
+
+        activeArrows();
+
+        setTimeout(function () {
+            modal.resize();
+            modal.resize();
+        }, 50);
+    }
+
+    function activeArrows(){
+        let prevButton = $('#arrowPrev');
+        let nextButton = $('#arrowNext');
+        if (tamanhoArray === index) {
+            nextButton.addClass('disabled');
+        } else {
+            if (nextButton.hasClass('disabled')) {
+                nextButton.removeClass('disabled');
+            }
+        }
+
+        if (index === 0) {
+            prevButton.addClass('disabled');
+        } else {
+            if (prevButton.hasClass('disabled')) {
+                prevButton.removeClass('disabled');
+            }
+        }
+    }
+
+    function prevImg() {
+        getImagesOfCurrentScenario('prev');
+        //getImagesOfCurrentScenario('prev');
+    }
+
+    function nextImg() {
+        getImagesOfCurrentScenario('next');
+        //getImagesOfCurrentScenario('next');
+    }
+
+    function getImagesOfCurrentScenario(direction) {
+        let modal = $('.featherlight');
+        let currentImg = modal.find('img');
+
+        if ((direction === 'next' && tamanhoArray > index) || (direction === 'prev' && index > 0)) {
+
+            if (direction === 'next' && tamanhoArray > index) {
+                index = index + 1;
+            }
+
+            if (direction === 'prev' && index > 0) {
+                index = index - 1;
+            }
+
+            let newX, newY;
+
+            currentImg.remove();
+            const img = new Image();
+            img.src = scenarioImages[index];
+            img.onload = function () {
+                newX = this.width;
+                newY = this.height;
+            }
+            modal.find('.featherlight-content').append('<img src="' + scenarioImages[index] + '" alt="" class="featherlight-image featherlight-inner" />');
+        }
+
+        setTimeout(function () {
+            modal.resize();
+            modal.resize();
+        }, 50);
+
+        activeArrows();
+    }
+</script>
+<style>
+
+    .arrows {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        vertical-align: middle;
+        align-items: center;
+        position: absolute;
+        top: 0;
+        height: 100%;
+        padding: 0 2%;
+        box-sizing: border-box;
+    }
+
+    .arrowItem {
+        font-size: 2.5em;
+        color: #fff;
+        margin: 2%;
+    }
+
+    .arrowItem.disabled {
+        color: #525252;
+    }
+
+    .featherlight .featherlight-content {
+        margin: 0 8% !important;
+        max-width: 80%;
+        z-index: 2147483647;
+    }
+</style>
