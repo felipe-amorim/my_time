@@ -45,3 +45,11 @@ The validations on the observables are:
 - Every 'And' keyword that comes after 'Then' keyword must have at least one assertion.
 
 The **Instances** class and some of its structure were requested by some clients and can be easily changed; however, due to a relatively short time to do this task, no further modification was done.
+
+The HTML report is based on the latest version of [ExtentReports](https://www.extentreports.com/docs/versions/5/java/index.html) with some modifications. The screenshots can be seen at the side of its equivalent action, and once opened, it pops up a modal, where you can navigate between them. Most of this content, including the carousel, is custom-made, so you won't be able to find it on the framework's website. You can find this file at ```src/test/resources/report/```
+
+To fully open the HTML report, open the second view on the left menu > click on the scenario name > click on the step name > *click on the _before_ or _after_
+
+*The _before_ and _after_ elements are displayed if the action had a screenshot. Every 'Then' and subsequent 'And' keyword must have at least one screenshot.
+
+There is also a .log file that is generated at ```src/test/resources/logs/```
