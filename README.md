@@ -10,7 +10,7 @@ The project consists of a BDD suite of tests, containing:
 - step definition classes, located at ```src/test/java/com/mytime/products/website/stepdefs/```
 - runner class, located at ```src/test/java/com/mytime/products/website/runner```
 
-In order to execute the project, the runner file should be used, either by accessing an IDE of choice, i.e. [Intellij](https://www.jetbrains.com/idea/download/), or by using the command line:
+In order to execute the project, the runner file should be used, either by accessing an IDE of choice, i.e. [Intellij](https://www.jetbrains.com/idea/download/), or by using the command line in the project folder:
 ```sh
 mvn clean test -Dtest=com.mytime.products.website.runner.Run`
 ```
