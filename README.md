@@ -55,7 +55,7 @@ To fully open the HTML report, open the second view on the left menu > click on 
 There is also a .log file that is generated at ```src/test/resources/logs/```
 
 
-####Environment
+###Environment
 
 In order to execute the project, you have to install Java 8, Android SDK, and Maven (If you’re willing to run the project from a command line or a .bat file).
 
