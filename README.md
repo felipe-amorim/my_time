@@ -53,3 +53,16 @@ To fully open the HTML report, open the second view on the left menu > click on 
 *The _before_ and _after_ elements are displayed if the action had a screenshot. Every 'Then' and subsequent 'And' keyword must have at least one screenshot.
 
 There is also a .log file that is generated at ```src/test/resources/logs/```
+
+
+####Environment
+
+In order to execute the project, you have to install Java 8, Android SDK, and Maven (If you’re willing to run the project from a command line or a .bat file).
+
+The following environment variables have to be configured:
+
+JAVA_HOME
+
+MAVEN_HOME
+
+Google Chrome must be installed to execute drivers based on chromium
